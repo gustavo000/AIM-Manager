@@ -33,7 +33,9 @@ end
 
 
 def canArrive?(m,pos)
-  puts " #{print_matrix(m)} " 
+  puts "  "
+  puts "current_state of matrix :  "
+  puts " #{print_matrix(m)} "   
   if final?(m,pos)
     return true
   elsif canMove?(m,pos,'no_path') == false || m[0][0] == 1  # case first cell is '1'
