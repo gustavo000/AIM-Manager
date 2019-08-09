@@ -16,16 +16,16 @@ end
 def canMove?(m,pos,direction)
   index_size = m.size - 1
   can_move = false
-  if direction == 'r'|| direction == 'no_path' # move right (move colum)
+  if direction == 'r' # move right (move colum)
    pos[1] + 1 <= index_size && m[pos[0]][pos[1] + 1 ] < 1 ?  can_move = true :  ''
   end
-  if direction == 'd' || direction == 'no_path'# move down (move row)
+  if direction == 'd' # move down (move row)
     pos[0] + 1 <= index_size && m[pos[0] + 1][pos[1] ] < 1 ?  can_move = true :  ''
   end
-  if direction == 'l' || direction == 'no_path'# move left (move column)
+  if direction == 'l' # move left (move column)
     pos[0] - 1 >= 0 && m[pos[0] - 1][pos[1] ] < 1 ?  can_move = true : ''
   end
-  if direction == 'u' || direction == 'no_path'# move up (move row)
+  if direction == 'u' # move up (move row)
     pos[1] - 1 >= 0 && m[pos[0]][pos[1] - 1 ] < 1 ?  can_move = true :  '' 
   end
   can_move
@@ -38,7 +38,7 @@ def canArrive?(m,pos)
   puts " #{print_matrix(m)} "   
   if final?(m,pos)
     return true
-  elsif canMove?(m,pos,'no_path') == false || m[0][0] == 1  # case first cell is '1'
+  elsif m[0][0] == 1  # case first cell is '1'
     return false
   end 
 
@@ -61,6 +61,8 @@ def canArrive?(m,pos)
     m[pos[0]][pos[1]] = 2 # mark with 2 to mark the path
     pos[0] -= 1
     return canArrive?(m,pos)
+  else 
+    return false
   end
 end
 
