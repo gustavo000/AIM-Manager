@@ -1,12 +1,4 @@
-require 'matrix'
-
-def print_matrix(m)
-  m.each do |x|
-    puts " #{x} "  
-  end
-  nil
-end
-
+require 'matrix' # this lib was used only for generate test cases
 
 def final?(m,pos)
   index_size = m.size - 1
@@ -66,7 +58,7 @@ def canArrive?(m,pos)
   end
 end
 
-def copy_matrix(m)
+def copy_matrix(m) # copy matrix to work with array multidimensional
   matrix = []
   i = 0
   while(i < m.column_count)
@@ -76,10 +68,17 @@ def copy_matrix(m)
   matrix
 end
 
+def print_matrix(m)
+  m.each do |x|
+    puts " #{x} "  
+  end
+  nil
+end
+
 i = 1
 size = 0
 while size == 0
-  size = rand(10)
+  size = rand(10) + 1
 end
 puts " test case #{i}  random matrix #{size}x#{size}"  
 m = Matrix.build(size, size){ |row, col| rand(2) } 
@@ -91,7 +90,7 @@ puts " "
 puts " "
 size = 0
 while size == 0
-  size = rand(10)
+  size = rand(10) + 1
 end
 puts " test case #{i}  random matrix #{size}x#{size}"  
 m = Matrix.build(size, size){ |row, col| rand(2) } 
@@ -101,7 +100,7 @@ puts "Result : #{canArrive?(m,[0,0])}"
 i += 1
 size = 0
 while size == 0
-  size = rand(10)
+  size = rand(10) + 1 
 end
 puts " "
 puts " "
@@ -114,7 +113,7 @@ puts " "
 puts " "
 size = 0
 while size == 0
-  size = rand(10)
+  size = rand(10) +  1
 end
 puts " test case #{i}  random matrix #{size}x#{size}"  
 m = Matrix.build(size, size){ |row, col| rand(2) } 
@@ -174,7 +173,7 @@ puts " "
 puts " "
 size = 0
 while size == 0
-  size = rand(90)
+  size = rand(90) + 1
 end
 puts ""
 puts "test case #{i}  matrix #{size}x#{size}"  
